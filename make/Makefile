@@ -15,13 +15,13 @@ $(DIRS):
 #	$(CC) $(CFLAGS) -c ../src/mat.cpp -o obj/rem/mat.o
 
 #SRCS = $(wildcard ../src/*.cpp)
-SRCS = ../src/vec.cpp ../src/mat.cpp ../src/rem.cpp
+SRCS = ../src/vec/vec.ixx ../src/vec/comparisonoperators.ixx ../src/vec/bitwiseoperators.ixx ../src/vec/arithmeticoperators.ixx ../src/mat.ixx ../src/rem.ixx
 PROGS = $(patsubst ../src/%.cpp,obj/rem/%.o,$(SRCS))
 
 
-obj/rem/%.o: ../src/%.cpp | $(DIRS)
+obj/rem/%.o: ../src/%.ixx | $(DIRS)
 	@echo Compiling $<
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -x c++ -c $< -o $@
 
 lib/librem.a: $(PROGS)
 	@echo Creating static library

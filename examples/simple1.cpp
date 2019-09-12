@@ -1,8 +1,6 @@
-
-
 #include <utility>
 
-import rem;
+import rem.vec;
 
 //#include <iostream>
 
@@ -10,7 +8,7 @@ int main() {
     using vec2 = rem::vec<2, float>;
     using ivec2 = rem::vec<2, int>;
     {                      // test constructors
-        constexpr vec2 a;  //(1);
+        constexpr vec2 a;
         static_assert(a[0] == 0);
         static_assert(a[1] == 0);
 
@@ -77,7 +75,7 @@ int main() {
         vec2 v1;
         vec2 vm(v1);
         const vec2 v2(std::move(vm));
-        
+
         v1 += 1.0f;
 
         auto b = v1[1];
