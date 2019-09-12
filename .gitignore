@@ -1,0 +1,4 @@
+make/lib/*
+make/obj/*
+make/gcm.cache/*
+make/bin/*
