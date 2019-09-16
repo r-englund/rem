@@ -7,7 +7,7 @@ MKDIR_P = @mkdir -p
 .PHONY: all rem clean
 all: bin/simple1
 
-DIRS = lib bin obj obj/rem
+DIRS = lib bin obj obj/rem obj/rem/vec
 $(DIRS):
 	$(MKDIR_P) $@
 	
@@ -16,7 +16,7 @@ $(DIRS):
 
 #SRCS = $(wildcard ../src/*.cpp)
 SRCS = ../src/vec/vec.ixx ../src/vec/comparisonoperators.ixx ../src/vec/bitwiseoperators.ixx ../src/vec/arithmeticoperators.ixx ../src/mat.ixx ../src/rem.ixx
-PROGS = $(patsubst ../src/%.cpp,obj/rem/%.o,$(SRCS))
+PROGS = $(patsubst ../src/%.ixx,obj/rem/%.o,$(SRCS))
 
 
 obj/rem/%.o: ../src/%.ixx | $(DIRS)

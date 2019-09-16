@@ -1,10 +1,17 @@
 #include <utility>
 
-import rem.vec;
+//import rem.vec;
+import rem.vec.comparisonoperators; 
+//import rem;
 
 //#include <iostream>
 
 int main() {
+
+
+    auto teszdfasdfc = testadd(1,2);
+    //rem::test(3.13f);
+
     using vec2 = rem::vec<2, float>;
     using ivec2 = rem::vec<2, int>;
     {                      // test constructors
@@ -40,7 +47,7 @@ int main() {
     }
     {  // test equals
         constexpr const vec2 f(4, 5);
-
+/*
         constexpr auto a = f == f;
         constexpr auto b = f != f;
         static_assert(a[0]);
@@ -53,6 +60,7 @@ int main() {
 
         static_assert(rem::any(a));
         static_assert(!rem::any(b));
+        */
     }
 
     {  // test negation
@@ -80,13 +88,13 @@ int main() {
 
         auto b = v1[1];
 
-        auto c = v1 == v2;
-
+     //   auto c = v1 == v2;
+/*
         auto it1 = v1.begin();
         auto it2 = v1.end();
 
         auto it3 = v2.begin();
-        auto it4 = v2.end();
+        auto it4 = v2.end(); // */
 
         // auto v3 = v1 + v2;
 
