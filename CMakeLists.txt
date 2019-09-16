@@ -14,19 +14,19 @@ endfunction()
 function(my_add_module target)
     set(options "")
     set(oneValueArgs "TARGET")
-    set(multiValueArgs MODULE_INTERFACE_UNIITS)
+    set(multiValueArgs MODULE_INTERFACE_UNITS)
     cmake_parse_arguments(PARSE_ARGV 1 ARG "${options}" "${oneValueArgs}" "${multiValueArgs}")
 
     message("Target: ${target}" )
-    message("Interface Units: ${MODULE_INTERFACE_UNITS}" )
+    message("Interface Units: ${ARG_MODULE_INTERFACE_UNITS}" )
 
     if(MSVC)
-        foreach(ixx ${MODULE_INTERFACE_UNITS})
+        foreach(ixx ${ARG_MODULE_INTERFACE_UNITS})
             set_source_files_properties(${ixx} PROPERTIES LANGUAGE CXX)
         endforeach()
     endif()
 
-    add_library(${target} STATIC ${MODULE_INTERFACE_UNITS})
+    add_library(${target} STATIC ${ARG_MODULE_INTERFACE_UNITS})
 
     my_enable_modules(${target})
 
@@ -46,7 +46,10 @@ my_add_module(
     )
 
 
-    add_executable(simple1 examples/simple1.cpp)
-    my_enable_modules(simple1)
+add_executable(constructors tests/constructors.cpp)
+add_executable(simple1 tests/simple1.cpp)
+
+my_enable_modules(constructors)
+my_enable_modules(simple1)
     
-    target_link_libraries(simple1 rem)
+target_link_libraries(constructors rem)

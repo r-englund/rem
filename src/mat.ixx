@@ -1,7 +1,5 @@
 export module rem.mat;
 
-//#include <array>
-
 export namespace rem {
 
 template <typename T, unsigned L>

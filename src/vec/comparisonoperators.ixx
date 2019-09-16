@@ -1,14 +1,7 @@
 export module rem.vec.comparisonoperators;
-
 export import rem.vec;
 
-export int testadd(int a, int b){
-    return a + b;
-}
-
 namespace rem {
-
-export void test(float a) { rem::vec<2, float> asdf; }
 
 export template <length_t L, typename T>
 constexpr auto operator>(const vec<L, T>& lhs, const vec<L, T>& rhs) {
