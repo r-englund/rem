@@ -7,11 +7,16 @@ MKDIR_P = @mkdir -p
 .PHONY: all rem clean tests
 all: tests
 
-DIRS = lib bin obj obj/rem obj/rem/vec
+DIRS = lib bin obj obj/rem obj/rem/vec obj/rem/internal
 $(DIRS):
 	$(MKDIR_P) $@
 	
-SRCS = ../src/std.ixx ../src/vec/vec.ixx ../src/vec/comparisonoperators.ixx ../src/vec/bitwiseoperators.ixx ../src/vec/arithmeticoperators.ixx ../src/mat.ixx ../src/rem.ixx
+
+
+SRCS = ../src/internal/common.ixx ../src/internal/util.ixx ../src/vec/vec.ixx ../src/vec/comparisonoperators.ixx ../src/vec/bitwiseoperators.ixx ../src/vec/arithmeticoperators.ixx ../src/mat/mat.ixx ../src/mat/arithmeticoperators.ixx ../src/mat/bitwiseoperators.ixx ../src/mat/comparisonoperators.ixx ../src/mat/inverse.ixx ../src/mat/transpose.ixx ../src/rem.ixx
+
+
+
 PROGS = $(patsubst ../src/%.ixx,obj/rem/%.o,$(SRCS))
 
 obj/rem/%.o: ../src/%.ixx | $(DIRS)

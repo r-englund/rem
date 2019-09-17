@@ -37,11 +37,20 @@ endfunction()
 my_add_module(
         rem 
     MODULE_INTERFACE_UNITS
-        src/mat.ixx
+        src/internal/common.ixx
+        src/internal/util.ixx
         src/vec/vec.ixx
         src/vec/comparisonoperators.ixx
         src/vec/bitwiseoperators.ixx
         src/vec/arithmeticoperators.ixx
+
+        src/mat/mat.ixx
+        src/mat/arithmeticoperators.ixx
+        src/mat/bitwiseoperators.ixx
+        src/mat/comparisonoperators.ixx
+        src/mat/inverse.ixx
+        src/mat/transpose.ixx
+
         src/rem.ixx
     )
 

@@ -1,8 +1,9 @@
 #ifndef _MSC_VER
 module;
 #endif
-//#include <type_traits>
 export module rem.vec.arithmeticoperators;
+
+import rem.common;
 
 export import rem.vec;
 
@@ -18,14 +19,11 @@ namespace rem {
 
     export template <length_t L, typename T>
         constexpr vec<L, T>& operator+=(vec<L, T>& lhs, T rhs) {
-        //for (auto& v : lhs) {
-        //    v += rhs;
-        //}
+        for (auto& v : lhs) {
+            v += rhs;
+        }
         return lhs;
     }
-
-
-
 
     export template <length_t L, typename T>
         constexpr vec<L, T>& operator-=(vec<L, T>& lhs, T rhs) {
