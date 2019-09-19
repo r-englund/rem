@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.12)
 project(REM)
 
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+set_property(GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER cmake)
 
 function(my_enable_modules target)
     if(MSVC)
@@ -26,6 +28,9 @@ function(my_add_module target)
         endforeach()
     endif()
 
+    source_group(TREE "${CMAKE_CURRENT_LIST_DIR}/src" FILES ${ARG_MODULE_INTERFACE_UNITS} )
+    #source_group("Module Interface Units" FILES ${ARG_MODULE_INTERFACE_UNITS} )
+
     add_library(${target} STATIC ${ARG_MODULE_INTERFACE_UNITS})
 
     my_enable_modules(${target})
@@ -40,9 +45,10 @@ my_add_module(
         src/internal/common.ixx
         src/internal/util.ixx
         src/vec/vec.ixx
+        src/vec/algebraicoperators.ixx
+        src/vec/arithmeticoperators.ixx
         src/vec/comparisonoperators.ixx
         src/vec/bitwiseoperators.ixx
-        src/vec/arithmeticoperators.ixx
 
         src/mat/mat.ixx
         src/mat/arithmeticoperators.ixx
@@ -54,11 +60,13 @@ my_add_module(
         src/rem.ixx
     )
 
+file(GLOB tests tests/*.cpp)
+foreach(test ${tests})
+    get_filename_component(testname ${test} NAME_WE)
+    add_executable(${testname} ${test})
+    my_enable_modules(${testname})
+    target_link_libraries(${testname} rem)
+    set_target_properties( ${testname} PROPERTIES FOLDER "tests")
+endforeach(test ${tests})
 
-add_executable(constructors tests/constructors.cpp)
-add_executable(simple1 tests/simple1.cpp)
 
-my_enable_modules(constructors)
-my_enable_modules(simple1)
-    
-target_link_libraries(constructors rem)

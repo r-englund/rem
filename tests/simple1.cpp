@@ -61,7 +61,6 @@ int main() {
         static_assert(rem::any(a));
         static_assert(!rem::any(b));
     }
-
     {
         // test negation
         constexpr ivec2 a(1);

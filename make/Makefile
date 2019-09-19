@@ -13,7 +13,7 @@ $(DIRS):
 	
 
 
-SRCS = ../src/internal/common.ixx ../src/internal/util.ixx ../src/vec/vec.ixx ../src/vec/comparisonoperators.ixx ../src/vec/bitwiseoperators.ixx ../src/vec/arithmeticoperators.ixx ../src/mat/mat.ixx ../src/mat/arithmeticoperators.ixx ../src/mat/bitwiseoperators.ixx ../src/mat/comparisonoperators.ixx ../src/mat/inverse.ixx ../src/mat/transpose.ixx ../src/rem.ixx
+SRCS = ../src/internal/common.ixx ../src/internal/util.ixx ../src/vec/vec.ixx ../src/vec/comparisonoperators.ixx ../src/vec/algebraicoperators.ixx ../src/vec/bitwiseoperators.ixx ../src/vec/arithmeticoperators.ixx ../src/mat/mat.ixx ../src/mat/arithmeticoperators.ixx ../src/mat/bitwiseoperators.ixx ../src/mat/comparisonoperators.ixx ../src/mat/inverse.ixx ../src/mat/transpose.ixx ../src/rem.ixx
 
 
 
