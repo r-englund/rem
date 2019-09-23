@@ -1,14 +1,15 @@
 #ifndef _MSC_VER
 module;
+#else
+#include <compare>
 #endif
 #include <limits>
 #include <type_traits>
 #include <numeric>
 #include <cmath>
-#include <compare>
 export module rem.vec.algebraicoperators;
 
-import rem.internal.common;
+export import rem.internal.common;
 
 export import rem.vec;
 export import rem.vec.arithmeticoperators;

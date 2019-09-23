@@ -9,6 +9,9 @@ export import rem.vec;
 
 namespace rem {
 
+template <length_t L, typename T>
+struct vec;
+
 export template <length_t L, typename T>
 constexpr vec<L, T> operator-(vec<L, T> lhs) {  // negation operator
     for (auto& v : lhs) {

@@ -1,0 +1,30 @@
+module rem.mat.transform;
+
+namespace rem {
+template <typename T , typename T2>
+constexpr mat<T, 4, 4> translate(T2 dx, T2 dy, T2 dz) {
+    return mat<T, 4, 4>{
+        1,  0,  0,  0,  // col 0
+        0,  1,  0,  0,  // col 1
+        0,  0,  1,  0,  // col 2
+        dx, dy, dz, 1   // col 3
+    };
+} 
+
+template <typename T, typename T2>
+constexpr mat<T, 4, 4> scale(T2 sx, T2 sy, T2 sz) {
+    return mat<T, 4, 4>{
+        sx, 0,  0,  0,  // col 0
+        0,  sy, 0,  0,  // col 1
+        0,  0,  sz, 0,  // col 2
+        0,  0,  0,  1   // col 3
+
+    };
+} 
+
+template <typename T , typename T2>
+constexpr mat<T, 4, 4> scale(T2 s) {
+    return scale(s, s, s);
+}
+
+}  // namespace rem

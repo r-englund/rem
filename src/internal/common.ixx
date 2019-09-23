@@ -1,7 +1,7 @@
 export module rem.internal.common;
 
-namespace rem {
-export using length_t = unsigned;
-export using index_t = unsigned;
+export namespace rem {
+using length_t = unsigned;
+using index_t = unsigned;
 
 }  // namespace rem
