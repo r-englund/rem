@@ -4,6 +4,25 @@ project(REM)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 set_property(GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER cmake)
 
+
+function (has_is_constant_evaluated retval)
+    file(WRITE "${CMAKE_BINARY_DIR}/cmake/has_is_constant_evaluated.cpp" "#include <type_traits>\nint main(){std::is_constant_evaluated();}") # \nbool test(){ return /*std::is_constant_evaluated();*/ true; }
+    try_compile(res "${CMAKE_BINARY_DIR}/cmake" SOURCES "${CMAKE_BINARY_DIR}/cmake/has_is_constant_evaluated.cpp" CXX_STANDARD 20 OUTPUT_VARIABLE output)
+    set(${retval} ${res} PARENT_SCOPE)
+endfunction()
+
+
+
+function (has_three_way_comp retval)
+    file(WRITE "${CMAKE_BINARY_DIR}/cmake/has_three_way_comp.cpp" "#include <compare>\nint main(){ auto a = 1 <=> 2;}") # \nbool test(){ return /*std::is_constant_evaluated();*/ true; }
+    try_compile(res "${CMAKE_BINARY_DIR}/cmake" SOURCES "${CMAKE_BINARY_DIR}/cmake/has_three_way_comp.cpp" CXX_STANDARD 20 OUTPUT_VARIABLE output)
+    set(${retval} ${res} PARENT_SCOPE)
+endfunction()
+
+
+
+
+
 function(my_enable_modules target)
     if(MSVC)
         target_compile_options(${target} PUBLIC "/experimental:module" )
@@ -37,7 +56,8 @@ function(my_add_module target)
 
 endfunction()
 
-
+has_is_constant_evaluated(has_is_constant_evaluated_res)
+has_three_way_comp(has_three_way_comp_res)
 
 my_add_module(
         rem 
@@ -59,6 +79,13 @@ my_add_module(
 
         src/rem.ixx
     )
+
+    if(${has_is_constant_evaluated_res})
+        target_compile_definitions(rem PRIVATE -DHAS_IS_CONSTANT_EVALUATED)
+    endif()
+    if(${has_three_way_comp_res})
+        target_compile_definitions(rem PRIVATE -DHAS_3WAY_COMP)
+    endif()
 
 file(GLOB tests tests/*.cpp)
 foreach(test ${tests})

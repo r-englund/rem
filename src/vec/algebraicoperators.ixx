@@ -5,6 +5,7 @@ module;
 #include <type_traits>
 #include <numeric>
 #include <cmath>
+#include <compare>
 export module rem.vec.algebraicoperators;
 
 import rem.internal.common;
@@ -63,7 +64,7 @@ constexpr T length2(const vec<L, T>& v) {
 
 export template <length_t L, typename T, typename F = typename float_type<T>::type>
 constexpr F length(const vec<L, T>& v) {
-  //  using F = typename float_type<T>::type;  // TODO, use as tempalte argument
+    //  using F = typename float_type<T>::type;  // TODO, use as tempalte argument
     static_assert(std::is_floating_point_v<F>);
     return sqrt(static_cast<F>(dot(v, v)));
 }
@@ -78,17 +79,14 @@ constexpr auto distance2(const vec<L, T>& a, const vec<L, T>& b) {
     return length2(a - b);
 }
 
-export template <length_t L, typename T
-    , typename = std::enable_if_t<std::is_floating_point_v<T>>
->
+export template <length_t L, typename T, typename = std::enable_if_t<std::is_floating_point_v<T>>>
 constexpr vec<L, T> normalize(vec<L, T> v) {
-    return v /= length(v);  
+    return v /= length(v);
 }
 
 export template <typename T>
 constexpr vec<3, T> cross(const vec<3, T>& lhs, const vec<3, T>& rhs) {
-    return vec<3, T>{lhs[1] * rhs[2] - rhs[1] * lhs[2], 
-                     lhs[2] * rhs[0] - rhs[2] * lhs[0],
+    return vec<3, T>{lhs[1] * rhs[2] - rhs[1] * lhs[2], lhs[2] * rhs[0] - rhs[2] * lhs[0],
                      lhs[0] * rhs[1] - rhs[0] * lhs[1]};
 }
 

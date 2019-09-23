@@ -76,8 +76,9 @@ constexpr bool any(const vec<L, bool>& v) {
     return false;
 }
 
-#ifdef HAS_SPACESHIP
-export constexpr auto operator<=>(const vec& lhs, const vec& rhs) { return lhs.compare(rhs); }
+#ifdef HAS_3WAY_COMP
+export template <length_t L, typename T>
+constexpr auto operator<=>(const vec<L,T>& lhs, const vec<L,T>& rhs) { return lhs.compare(rhs); }
 #endif
 
 }  // namespace rem
