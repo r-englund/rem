@@ -1,18 +1,18 @@
 #include <utility>
 
-// import rem.vec;
+//import rem.vec.vec;
 // import rem.vec.bitwiseoperators;
 // import rem.vec.comparisonoperators;
 // import rem.vec.arithmeticoperators;
-import rem;
+ import rem;
 
 //#include <iostream>
+namespace rem {
+void test() {
 
-int main() {
-
-    using vec2 = rem::vec<2, float>;
-    using ivec5 = rem::vec<5, int>;
-    using ivec2 = rem::vec<2, int>;
+    using vec2 = vec<2, float>;
+    using ivec5 = vec<5, int>;
+    using ivec2 = vec<2, int>;
     {  // test constructors
         constexpr vec2 a;
         static_assert(a[0] == 0);
@@ -49,12 +49,12 @@ int main() {
         static_assert(h[3] == 4);
         static_assert(h[4] == 5);
 
-        // constexpr const vec2 g(4,5,6); // should not compile
+        // constexpr const vec2 i(4,5,6); // should not compile
 
-        int dummy = 0;
+        //    int dummy = 0;
     }
-    {
-        using bvec2 = rem::vec<2, bool>;
+    {  // Test bool vecs
+        using bvec2 = vec<2, bool>;
         constexpr const bvec2 aa(false, false);
         constexpr const bvec2 ab(true, false);
         constexpr const bvec2 ba(false, true);
@@ -68,12 +68,13 @@ int main() {
 
     {  // test mat
 
-        using mat3x3 = rem::mat<float, 3>;
-        using mat3x2 = rem::mat<float, 3, 2>;
+        using mat3x3 = mat<float, 3>;
+        using mat3x2 = mat<float, 3, 2>;
 
         constexpr const mat3x3 a(1.0f);
         constexpr const mat3x3 b(1, 2, 3, 4, 5, 6, 7, 8, 9);
-
-        int dummy = 0;
     }
 }
+}  // namespace rem
+
+int main() { rem::test(); }

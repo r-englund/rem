@@ -1,10 +1,8 @@
 export module rem.vec.comparisonoperators;
 
-export import rem.vec;
+export import rem.vec.vec;
 
-namespace rem {
-template <length_t L, typename T>
-struct vec;
+REM_NAMESPACE_START
 
 export template <length_t L, typename T>
 constexpr auto operator>(const vec<L, T>& lhs, const vec<L, T>& rhs) {
@@ -83,4 +81,5 @@ export template <length_t L, typename T>
 constexpr auto operator<=>(const vec<L,T>& lhs, const vec<L,T>& rhs) { return lhs.compare(rhs); }
 #endif
 
-}  // namespace rem
+REM_NAMESPACE_END
+

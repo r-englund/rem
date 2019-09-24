@@ -1,6 +1,8 @@
 export module rem.mat.arithmeticoperators;
 
 export import rem.internal.common;
-export import rem.mat;
+export import rem.mat.mat;
 
-namespace rem {}  // namespace rem
+REM_NAMESPACE_START
+
+REM_NAMESPACE_END

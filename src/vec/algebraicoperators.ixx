@@ -1,8 +1,4 @@
-#ifndef _MSC_VER
 module;
-#else
-#include <compare>
-#endif
 #include <limits>
 #include <type_traits>
 #include <numeric>
@@ -11,10 +7,10 @@ export module rem.vec.algebraicoperators;
 
 export import rem.internal.common;
 
-export import rem.vec;
+export import rem.vec.vec;
 export import rem.vec.arithmeticoperators;
 
-namespace rem {
+REM_NAMESPACE_START
 
 #ifdef has_is_constant_evaluated
 constexpr bool is_constant_evaluated() { return std::is_constant_evaluated(); }
@@ -91,4 +87,4 @@ constexpr vec<3, T> cross(const vec<3, T>& lhs, const vec<3, T>& rhs) {
                      lhs[0] * rhs[1] - rhs[0] * lhs[1]};
 }
 
-}  // namespace rem
+REM_NAMESPACE_END

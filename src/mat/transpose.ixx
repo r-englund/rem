@@ -1,14 +1,21 @@
 export module rem.mat.transpose;
 
 export import rem.internal.common;
-export import rem.mat;
 
-namespace rem {
+export import rem.mat.mat;
 
-template <typename T, length_t C, length_t R, typename M = mat<T, C, R>,
-          typename Ret = M::transpose_type>
-Ret transpose(const M& m) {
-    return {};
+REM_NAMESPACE_START
+
+//template <typename T, length_t C, length_t R>
+//struct mat;
+
+export template <
+    typename M
+    //typename T, length_t C, length_t R
+    //,typename Ret = typename mat<T, C, R>::transpose_type
+>
+constexpr auto transpose(const M& m) {
+    return M{};
 }
 
-}  // namespace rem
+REM_NAMESPACE_END

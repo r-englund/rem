@@ -1,16 +1,10 @@
-#ifndef _MSC_VER
-module;
-#endif
 export module rem.vec.arithmeticoperators;
 
 import rem.internal.common;
 
-export import rem.vec;
+export import rem.vec.vec;
 
-namespace rem {
-
-template <length_t L, typename T>
-struct vec;
+REM_NAMESPACE_START
 
 export template <length_t L, typename T>
 constexpr vec<L, T> operator-(vec<L, T> lhs) {  // negation operator
@@ -101,4 +95,4 @@ constexpr vec<L, T> operator/(vec<L, T> lhs, const vec<L, T>& rhs) {
     return lhs /= rhs;
 }
 
-}  // namespace rem
+REM_NAMESPACE_END

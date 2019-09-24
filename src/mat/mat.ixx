@@ -1,24 +1,22 @@
-#ifndef _MSC_VER
 module;
-#endif
 #include <array>
 #include <type_traits>
-export module rem.mat;
+export module rem.mat.mat;
 
 export import rem.internal.common;
 
 import rem.internal.util;
 
-import rem.vec;
+import rem.vec.vec;
 
-namespace rem {
+REM_NAMESPACE_START
 
 export template <typename T, length_t C, length_t R = C>
 struct mat {
     using value_type = T;
     using type = mat<T, C, R>;
-    using col_type = vec<C, T>;
-    using row_type = vec<R, T>;
+    //using col_type = vec<C, T>;
+    //using row_type = vec<R, T>;
     using transpose_type = mat<T, R, C>;
     constexpr static inline length_t cols = C;
     constexpr static inline length_t rows = R;
@@ -51,4 +49,4 @@ private:
     std::array<T, R * C> data;
 };
 
-}  // namespace rem
+REM_NAMESPACE_END

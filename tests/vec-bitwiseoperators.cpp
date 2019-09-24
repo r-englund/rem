@@ -1,3 +1,8 @@
 import rem.vec.bitwiseoperators;
 
-int main() { using vec2 = rem::vec<3, float>; }
+namespace rem {
+void test() { using mat3 = vec<3, int>; }
+
+}  // namespace rem
+
+int main() { rem::test(); }

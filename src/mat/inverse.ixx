@@ -1,9 +1,9 @@
 export module rem.mat.inverse;
 
 export import rem.internal.common;
-export import rem.mat;
+export import rem.mat.mat;
 
-namespace rem {
+REM_NAMESPACE_START
 
 
-}  // namespace rem
+REM_NAMESPACE_END

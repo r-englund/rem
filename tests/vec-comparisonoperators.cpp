@@ -1,3 +1,9 @@
 import rem.vec.comparisonoperators;
 
-int main() { using vec2 = rem::vec<3, float>; }
+
+namespace rem {
+void test() { using mat3 = vec<3, float>; }
+
+}  // namespace rem
+
+int main() { rem::test(); }

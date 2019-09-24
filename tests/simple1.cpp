@@ -6,13 +6,12 @@
 // import rem.vec.arithmeticoperators;
 import rem;
 
-//#include <iostream>
 
-int main() {
-
-    using vec2 = rem::vec<2, float>;
-    using ivec2 = rem::vec<2, int>;
-    { // test constructors
+namespace rem {
+void test() { 
+    using vec2 = vec<2, float>;
+    using ivec2 = vec<2, int>;
+    {  // test constructors
         constexpr vec2 a;
         static_assert(a[0] == 0);
         static_assert(a[1] == 0);
@@ -55,11 +54,11 @@ int main() {
         static_assert(!b[0]);
         static_assert(!b[1]);
 
-        static_assert(rem::all(a));
-        static_assert(!rem::all(b));
+        static_assert(all(a));
+        static_assert(!all(b));
 
-        static_assert(rem::any(a));
-        static_assert(!rem::any(b));
+        static_assert(any(a));
+        static_assert(!any(b));
     }
     {
         // test negation
@@ -89,25 +88,14 @@ int main() {
         auto b = v1[1];
 
         auto c = v1 == v2;
-        /*
-                auto it1 = v1.begin();
-                auto it2 = v1.end();
-
-                auto it3 = v2.begin();
-                auto it4 = v2.end(); // */
-
-                // auto v3 = v1 + v2;
-
-                // rem::vec1<float> v1(3.14f);
-
-                //  rem::vec<float, 2> vec;
-                //  auto a = vec.x();
-                //  auto b = vec.y();
-                // auto a = vec.z();
-                //  auto a = vec.w();
-
-                //   std::cout << "Hello world " << std::endl;
+     
     }
 
-    // TODO test bitwise operators on int and bool
+}
+
+}  // namespace rem
+
+
+int main() { rem::test();
+    
 }

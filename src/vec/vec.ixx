@@ -1,15 +1,12 @@
-#ifndef _MSC_VER
 module;
-#endif
 #include <array>
 #include <type_traits>
-
-export module rem.vec;
+export module rem.vec.vec;
 
 export import rem.internal.common;
-import rem.internal.util;
+export import rem.internal.util;
 
-namespace rem {
+REM_NAMESPACE_START
 
 export template <length_t L, typename T>
 struct vec {
@@ -47,7 +44,7 @@ struct vec {
         return T{0};
     }
 
-    template <typename = std::enable_if_t<std::is_same_v<bool, T>>>
+    template <typename U = T, typename = std::enable_if<std::is_same_v<bool, U>>::type>
     constexpr explicit operator bool() const noexcept {
         for (bool b : *this)
             if (!b) return false;
@@ -63,4 +60,7 @@ private:
     std::array<T, L> data;
 };
 
-}  // namespace rem
+REM_NAMESPACE_END
+
+
+

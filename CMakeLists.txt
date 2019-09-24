@@ -70,8 +70,8 @@ my_add_module(
         src/internal/common.ixx
         src/internal/util.ixx
         src/vec/vec.ixx
-        src/vec/algebraicoperators.ixx
         src/vec/arithmeticoperators.ixx
+        src/vec/algebraicoperators.ixx
         src/vec/comparisonoperators.ixx
         src/vec/bitwiseoperators.ixx
 
@@ -82,12 +82,19 @@ my_add_module(
         src/mat/inverse.ixx
         src/mat/transpose.ixx
         src/mat/transform.ixx
+        
+        
+        src/vec.ixx
+        src/mat.ixx
 
         src/rem.ixx
         
     MODULE_IMPLEMENTATION_UNITS
         src/mat/transform.mxx
     )
+
+    target_compile_definitions(rem PRIVATE REM_NAMESPACE_START=namespace\ rem{)
+    target_compile_definitions(rem PRIVATE REM_NAMESPACE_END=})
 
     if(${has_is_constant_evaluated_res})
         target_compile_definitions(rem PRIVATE -DHAS_IS_CONSTANT_EVALUATED)

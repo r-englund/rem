@@ -1,10 +1,15 @@
 import rem.mat.transform;
 
-int main() {
+import rem.mat.arithmeticoperators;
 
-    auto t = rem::translate(1.0f, 2.0f, 3.0f);
-    auto s1 = rem::scale(1, 2, 3);
-    auto s2 = rem::scale(2);
-
-    int dummy = 0;
+namespace rem {
+void test() {
+    // auto t = translate(1.0f, 2.0f, 3.0f);
+    /*auto s1 = scale(1, 2, 3);
+    auto s2 = scale(2);*/
 }
+
+}  // namespace rem
+
+int main() { rem::test(); }
+

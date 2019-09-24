@@ -1,8 +1,13 @@
-import rem.mat.transform;
+import rem.mat.transpose;
 
-int main() { 
-    
+namespace rem {
 
-  
-
+void test() {
+    using mat3 = mat<float, 3, 3>;
+    constexpr const mat3 a(1);
+    constexpr const mat3::transpose_type b = transpose(a);
 }
+
+}  // namespace rem
+
+int main() { rem::test(); }
