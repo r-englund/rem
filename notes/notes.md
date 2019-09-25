@@ -15,7 +15,12 @@
 # module partition units 
 starts at https://youtu.be/Di_oqMh4gM8?t=4935 
 
-
+# MSVC Docs
+ * Blog 1 https://devblogs.microsoft.com/cppblog/c-modules-in-vs-2015-update-1/
+ * Blog 2 https://devblogs.microsoft.com/cppblog/cpp-modules-in-visual-studio-2017/
+ * 
+ * Overview of modules in C++  https://docs.microsoft.com/en-us/cpp/cpp/modules-cpp?view=vs-2019
+ * /experimental:module (Enable module support) https://docs.microsoft.com/en-us/cpp/build/reference/experimental-module?view=vs-2019
 
 # Funny error messages: 
 1.  We are damaged, This is broken.

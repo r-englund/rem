@@ -48,6 +48,7 @@ function(my_add_module target)
     endforeach()
     foreach(mxx ${ARG_MODULE_IMPLEMENTATION_UNITS})
         set_source_files_properties(${mxx} PROPERTIES LANGUAGE CXX)
+        set_source_files_properties(${mxx} PROPERTIES COMPILE_FLAGS /module:export)
     endforeach()
     endif()
 

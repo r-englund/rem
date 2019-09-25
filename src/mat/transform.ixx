@@ -6,19 +6,15 @@ export import rem.mat.mat;
 REM_NAMESPACE_START
 
 export template <typename T = float>
-constexpr mat<T, 4, 4> translate(T dx, T dy, T dz) {
-    return mat<T, 4, 4>{
-        1,  0,  0,  0,  // col 0
-        0,  1,  0,  0,  // col 1
-        0,  0,  1,  0,  // col 2
-        dx, dy, dz, 1   // col 3
-    };
-}
-////
-//export template <typename T = float, typename T2 = T>
-//constexpr mat<T, 4, 4> scale(T2 sx, T2 sy, T2 sz);
+constexpr mat<T, 4, 4> translate(T dx, T dy, T dz);
+
+export template <typename T = float>
+constexpr mat<T, 4, 4> scale(T sx, T sy, T sz);
 //
-//export template <typename T = float, typename T2 = T>
-//constexpr mat<T, 4, 4> scale(T2 s);
+export template <typename T = float>
+constexpr mat<T, 4, 4> scale(T s);
+
+export constexpr int qwer() { return 123; }
+export constexpr int qwer2();
 
 REM_NAMESPACE_END

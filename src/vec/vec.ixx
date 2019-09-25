@@ -10,6 +10,7 @@ REM_NAMESPACE_START
 
 export template <length_t L, typename T>
 struct vec {
+    static_assert(L > 0);
     using value_type = T;
     using type = vec<L, T>;
     constexpr static inline length_t length = L;

@@ -13,6 +13,16 @@ constexpr auto operator>(const vec<L, T>& lhs, const vec<L, T>& rhs) {
     return res;
 }
 
+
+export template <length_t L, typename T>
+constexpr auto operator<(const vec<L, T>& lhs, const vec<L, T>& rhs) {
+    vec<L, bool> res;
+    for (length_t i = 0; i < L; i++) {
+        res[i] = rhs[i] < lhs[i];
+    }
+    return res;
+}
+
 export template <length_t L, typename T>
 constexpr auto operator<=(const vec<L, T>& lhs, const vec<L, T>& rhs) {
     vec<L, bool> res;
@@ -49,14 +59,6 @@ constexpr auto operator!=(const vec<L, T>& lhs, const vec<L, T>& rhs) {
     return res;
 }
 
-export template <length_t L, typename T>
-constexpr auto operator<(const vec<L, T>& lhs, const vec<L, T>& rhs) {
-    vec<L, bool> res;
-    for (length_t i = 0; i < L; i++) {
-        res[i] = rhs[i] < lhs[i];
-    }
-    return res;
-}
 
 export template <length_t L>
 constexpr bool all(const vec<L, bool>& v) {
